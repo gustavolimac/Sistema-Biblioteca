@@ -45,7 +45,7 @@ public class Livro implements Emprestavel {
         this.tipo = tipo;
     }
 
-    public boolean getDisponivel() {
+    public boolean isDisponivel() {
         return disponivel;
     }
 

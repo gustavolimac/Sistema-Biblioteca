@@ -51,20 +51,4 @@ public class Emprestimo{
     public void setStatus(StatusEmprestimo status) {
         this.status = status;
     }
-
-    public void emprestar() {
-        if(livro.getDisponivel()) {
-            System.out.println("Livro emprestado com sucesso!");
-            livro.setDisponivel(false);
-        }else{
-            System.out.println("Livro já está emprestado.");
-        }
-    }
-
-    public void devolver() {
-        if(!livro.getDisponivel()){
-            System.out.println("Livro devolvido com sucesso!");
-            livro.setDisponivel(true);
-        }
-    }
 }

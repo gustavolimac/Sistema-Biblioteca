@@ -10,15 +10,17 @@ public class Main{
         Pessoa[] pessoas = {usuario1, usuario2, bibliotecario};
 
         System.out.println("===== PESSOAS =====");
-        for(Pessoa pessoa : pessoas){
+        for (Pessoa pessoa : pessoas) {
             pessoa.exibirDados();
 
-            if(pessoa instanceof Usuario){
+            if (pessoa instanceof Usuario) {
                 System.out.println("Esta pessoa é um usuário.");
-            };
-            if(pessoa instanceof Bibliotecario){
+            }
+            ;
+            if (pessoa instanceof Bibliotecario) {
                 System.out.println("Esta pessoa é um bibliotecário.");
-            };
+            }
+            ;
             System.out.println();
         }
 
@@ -35,32 +37,34 @@ public class Main{
         livros[3] = livro4;
         livros[4] = livro5;
         System.out.println("===== LIVROS =====");
-        for(Livro livro : livros){
+        for (Livro livro : livros) {
             livro.exibirDados();
             System.out.println();
         }
         System.out.println("===== EMPRÉSTIMOS =====");
-        Emprestimo emprestimo1 = new Emprestimo((Usuario)usuario1, livro1);
-        emprestimo1.emprestar();
+        livro1.emprestar();
         System.out.println();
-        emprestimo1.emprestar();
-        Emprestimo emprestimo2 = new Emprestimo((Usuario)usuario2, livro2);
+        livro1.emprestar();
+        System.out.println();
 
-        System.out.println();
         System.out.println("===== FINALIZANDO EMPRÉSTIMO =====");
+        Emprestimo emprestimo1 = new Emprestimo((Usuario)usuario1, livro1);
         emprestimo1.finalizarEmprestimo();
-
         System.out.println();
-        System.out.println(emprestimo1.getStatus());
 
         System.out.println("===== BUSCAR LIVRO POR CÓDIGO =====");
-        Biblioteca biblioteca = new Biblioteca(livros,pessoas);
+        Biblioteca biblioteca = new Biblioteca(livros, pessoas);
         System.out.println("===== LIVROS =====");
         biblioteca.listarLivros();
         System.out.println("===== PESSOAS =====");
         biblioteca.listarPessoas();
         System.out.println("===== CÓDIGO =====");
-        System.out.println(biblioteca.buscarLivroPorCodigo("001"));
+        Livro pesquisa = biblioteca.buscarLivroPorCodigo("006");
+        if (pesquisa != null) {
+            pesquisa.exibirDados();
+        }
+        else{
+            System.out.println("Não existe um livro com esse código");
+        }
     }
-
 }
